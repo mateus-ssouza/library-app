@@ -1,0 +1,45 @@
+<mat-card>
+  <h1>{{ txtTitulo }}</h1>
+
+  <form [formGroup]="bookForm" (ngSubmit)="submit()" #formDit="ngForm">
+    <input type="hidden" formControlName="id">
+
+    <div class="input-box">
+      <mat-form-field>
+        <mat-label for="">Título:</mat-label>
+        <input matInput type="text" formControlName="title" placeholder="Insira o título..." (blur)="titleErrorMessage()"
+          required>
+        @if (title.invalid) {
+        <mat-error>{{errorInputTitle}}</mat-error>
+        }
+      </mat-form-field>
+    </div>
+
+    <div class="input-box">
+      <mat-form-field>
+        <mat-label for="">Autor:</mat-label>
+        <input matInput type="text" formControlName="author" placeholder="Insira o autor..." (blur)="authorErrorMessage()"
+          required>
+        @if (author.invalid) {
+        <mat-error>{{errorInputAuthor}}</mat-error>
+        }
+      </mat-form-field>
+    </div>
+
+    <div class="input-box">
+      <mat-form-field>
+        <mat-label for="">ISBN:</mat-label>
+        <input matInput type="text" formControlName="isbn" placeholder="Insira o isbn..." (blur)="isbnErrorMessage()"
+          required>
+        @if (isbn.invalid) {
+        <mat-error>{{errorInputIsbn}}</mat-error>
+        }
+      </mat-form-field>
+    </div>
+
+    <div class="btn-box">
+      <button type="submit" mat-raised-button color="accent" [disabled]="!bookForm.valid">{{ btnAcao }}</button>
+      <button mat-raised-button routerLink="/livros">Voltar</button>
+    </div>
+  </form>
+</mat-card>

@@ -1,0 +1,85 @@
+<mat-card>
+  <div>
+    <h1>Detalhes do Usuário</h1>
+  </div>
+
+  @if (user) {
+  <div>
+    <form>
+      <div class="input-box">
+        <mat-form-field>
+          <mat-label for="">Nome:</mat-label>
+          <input matInput type="text" value="{{user.name}}" disabled>
+        </mat-form-field>
+      </div>
+
+      <div class="input-box">
+        <mat-form-field>
+          <mat-label for="">CPF:</mat-label>
+          <input matInput type="text" value="{{user.cpf}}" disabled>
+        </mat-form-field>
+      </div>
+
+      <div class="input-box">
+        <mat-form-field>
+          <mat-label for="">Data de Nascimento:</mat-label>
+          <input matInput type="text" value="{{user.birthday}}" disabled>
+        </mat-form-field>
+      </div>
+
+      <div class="input-box">
+        <mat-form-field>
+          <mat-label for="">E-mail:</mat-label>
+          <input matInput type="text" value="{{user.email}}" disabled>
+        </mat-form-field>
+      </div>
+
+      <div class="input-box">
+        <mat-form-field>
+          <mat-label for="">Tipo da conta:</mat-label>
+          <input matInput type="text" value="{{user.userType == 1 ? 'ADMIN': 'CLIENTE'}}" disabled>
+        </mat-form-field>
+      </div>
+
+      <div class="input-box">
+        <mat-form-field>
+          <mat-label for="">Rua:</mat-label>
+          <input matInput type="text" value="{{user.address.street}}" disabled>
+        </mat-form-field>
+      </div>
+
+      <div class="input-box">
+        <mat-form-field>
+          <mat-label for="">Número:</mat-label>
+          <input matInput type="text" value="{{user.address.number}}" disabled>
+        </mat-form-field>
+      </div>
+
+      <div class="input-box">
+        <mat-form-field>
+          <mat-label for="">Complemento:</mat-label>
+          <input matInput type="text" value="{{user.address.complement}}" disabled>
+        </mat-form-field>
+      </div>
+
+      <div class="input-box">
+        <mat-form-field>
+          <mat-label for="">Cidade:</mat-label>
+          <input matInput type="text" value="{{user.address.city}}" disabled>
+        </mat-form-field>
+      </div>
+
+      <div class="input-box">
+        <mat-form-field>
+          <mat-label for="">Estado:</mat-label>
+          <input matInput type="text" value="{{user.address.state}}" disabled>
+        </mat-form-field>
+      </div>
+
+      <div class="btn-box">
+        <button mat-raised-button routerLink="/usuarios">Voltar</button>
+      </div>
+    </form>
+  </div>
+  }
+</mat-card>

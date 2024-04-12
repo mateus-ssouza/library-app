@@ -1,0 +1,35 @@
+<mat-card>
+  <h1>Cadastro da Cópia</h1>
+
+  <form [formGroup]="copyForm" (ngSubmit)="submit()" #formDit="ngForm">
+    <mat-form-field>
+      <mat-label>Livro</mat-label>
+      <input #input type="text" formControlName="book" placeholder="Selecione um livro..." matInput
+        [matAutocomplete]="auto" (input)="filter()" (focus)="filter()" (blur)="bookErrorMessage()">
+      <mat-autocomplete requireSelection #auto="matAutocomplete" [displayWith]="displayFn">
+
+        @for (option of filteredOptions; track option) {
+        <mat-option [value]="option">{{option.title}}</mat-option>
+        }
+      </mat-autocomplete>
+      @if (book.invalid) {
+        <mat-error>{{errorInputBook}}</mat-error>
+        }
+    </mat-form-field>
+
+    <div class="input-box">
+      <mat-form-field>
+        <mat-label for="">Código da Cópia:</mat-label>
+        <input matInput type="text" formControlName="copyCode" placeholder="Insira o código da cópia..." (blur)="copyCodeErrorMessage()" required>
+        @if (copyCode.invalid) {
+          <mat-error>{{errorInputCopyCode}}</mat-error>
+          }
+      </mat-form-field>
+    </div>
+
+    <div class="btn-box">
+      <button type="submit" mat-raised-button color="accent" [disabled]="!copyForm.valid">Cadastrar</button>
+      <button mat-raised-button routerLink="/copias">Voltar</button>
+    </div>
+  </form>
+</mat-card>

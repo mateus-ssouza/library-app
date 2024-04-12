@@ -1,0 +1,18 @@
+.form-container {
+  display: flex;
+}
+
+.form-user {
+  flex: 1;
+  margin-right: 20px;
+}
+
+.form-address {
+  flex: 1;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}

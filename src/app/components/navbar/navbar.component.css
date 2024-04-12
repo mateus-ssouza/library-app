@@ -1,0 +1,19 @@
+.navbar {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.menu-itens {
+  margin-left: 40px;
+}
+
+.menu-itens button {
+  padding-top: 0.2em;
+  font-size: 16px;
+}
+
+.profile-options {
+  flex-grow: 1;
+  text-align: right;
+}

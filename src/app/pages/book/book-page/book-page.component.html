@@ -1,0 +1,54 @@
+<mat-card>
+  <div class="book-box">
+    <div class="input-box">
+      <mat-form-field>
+        <mat-label>Procurar:</mat-label>
+        <input matInput type="text" placeholder="Qual registro está buscando?" (input)="search($event)">
+      </mat-form-field>
+    </div>
+
+    <div>
+      <button mat-raised-button color="primary" routerLink="/livro/cadastro">ADICIONAR</button>
+    </div>
+  </div>
+
+  <table mat-table [dataSource]="dataSource">
+
+    <ng-container matColumnDef="Id">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let book"></td>
+    </ng-container>
+
+    <ng-container matColumnDef="Titulo">
+      <th mat-header-cell *matHeaderCellDef> Título </th>
+      <td mat-cell *matCellDef="let book"> {{book.title}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Autor">
+      <th mat-header-cell *matHeaderCellDef> Autor </th>
+      <td mat-cell *matCellDef="let book"> {{book.author}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="ISBN">
+      <th mat-header-cell *matHeaderCellDef> ISBN </th>
+      <td mat-cell *matCellDef="let book"> {{book.isbn}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Acoes">
+      <th mat-header-cell *matHeaderCellDef>Ações</th>
+      <td mat-cell *matCellDef="let book">
+        <button mat-icon-button color="primary"
+          routerLink="/livro/editar/{{book.id}}"><mat-icon>mode_edit</mat-icon></button>
+        <button mat-icon-button color="basic"
+          routerLink="/livro/detalhes/{{book.id}}"><mat-icon>description</mat-icon></button>
+        <button mat-icon-button color="warn" (click)="openDialog(book.id)"><mat-icon>delete</mat-icon></button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="columns"></tr>
+    <tr mat-row *matRowDef="let row; columns: columns;"></tr>
+  </table>
+  <mat-paginator [length]="20" [pageSize]="5" [pageSizeOptions]="[5, 10, 20]" aria-label="Select page">
+  </mat-paginator>
+
+</mat-card>

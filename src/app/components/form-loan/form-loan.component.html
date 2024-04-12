@@ -1,0 +1,49 @@
+<mat-card>
+  <h1>{{ txtTitulo }}</h1>
+
+  <form [formGroup]="loanForm" (ngSubmit)="submit()" #formDit="ngForm">
+    <input type="hidden" formControlName="id">
+
+    <div class="input-box">
+      <mat-form-field>
+        <mat-label for="">Data de Empréstimo:</mat-label>
+        <input matInput type="text" formControlName="loanDate" placeholder="dd/mm/aaaa" (blur)="loanDateErrorMessage()"
+          required>
+        @if (loanDate.invalid) {
+        <mat-error>{{errorInputLoanDate}}</mat-error>
+        }
+      </mat-form-field>
+    </div>
+
+    <div class=" input-box">
+      <mat-form-field>
+        <mat-label for="">Data de Retorno:</mat-label>
+        <input matInput type="text" formControlName="returnDate" placeholder="dd/mm/aaaa"
+          (blur)="returnDateErrorMessage()" required>
+        @if (returnDate.invalid) {
+        <mat-error>{{errorInputReturnDate}}</mat-error>
+        }
+      </mat-form-field>
+    </div>
+
+    <div class=" input-box">
+      <mat-form-field>
+        <mat-label>Cópias disponíveis</mat-label>
+        <mat-select formControlName="books" (blur)="booksErrorMessage()" multiple>
+          @for (copy of copiesList; track copy) {
+          @if(copy.available == true) {
+          <mat-option [value]="copy.id">{{copy.book.title}}</mat-option>
+          }
+          }
+        </mat-select>
+        @if (books.invalid) {
+        <mat-error>{{errorInputBookList}}</mat-error>
+        }
+      </mat-form-field>
+    </div>
+    <div class="btn-box">
+      <button type="submit" mat-raised-button color="accent" [disabled]="!loanForm.valid">{{ btnAcao }}</button>
+      <button mat-raised-button routerLink="/emprestimos">Voltar</button>
+    </div>
+  </form>
+</mat-card>

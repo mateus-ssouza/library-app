@@ -1,0 +1,31 @@
+@if (loanData) {
+  <mat-card>
+    <h1>Editar Empréstimo</h1>
+
+    <form [formGroup]="loanForm" (ngSubmit)="submit()" #formDit="ngForm">
+      <input type="hidden" formControlName="id">
+
+      <div class="input-box">
+        <mat-form-field>
+          <mat-label for="">Data de Empréstimo:</mat-label>
+          <input matInput type="text" [value]="loanDateEdit" placeholder="dd/mm/aaaa" disabled>
+        </mat-form-field>
+      </div>
+
+      <div class="input-box">
+        <mat-form-field>
+          <mat-label for="">Data de Retorno:</mat-label>
+          <input matInput type="text" formControlName="returnDate" placeholder="dd/mm/aaaa" (blur)="returnDateErrorMessage()" required>
+          @if (returnDate.invalid) {
+            <mat-error>{{errorInputReturnDate}}</mat-error>
+            }
+        </mat-form-field>
+      </div>
+
+      <div class="btn-box">
+        <button type="submit" mat-raised-button color="accent" [disabled]="!loanForm.valid">Editar</button>
+        <button mat-raised-button routerLink="/emprestimos">Voltar</button>
+      </div>
+    </form>
+  </mat-card>
+}

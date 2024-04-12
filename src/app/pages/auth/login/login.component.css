@@ -1,0 +1,37 @@
+.login-form {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.login-form h1 {
+ text-transform: uppercase;
+ font-weight: 600;
+}
+
+.login-form mat-icon {
+  font-size: 10;
+}
+
+.login-form h1 {
+  text-align: center;
+}
+
+.login-form {
+  border: 5px solid #f0f0f0;
+  border-radius: 40px;
+  padding: 60px;
+}
+
+.register-link  {
+  display: block;
+  margin-top: 20px;
+}
+
+.register-link a {
+  font-weight: bold;
+  text-decoration: none;
+  color: inherit;
+}
+

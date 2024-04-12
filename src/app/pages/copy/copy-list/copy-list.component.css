@@ -1,0 +1,13 @@
+.mat-mdc-button-base {
+  margin: 8px 8px 0px 0px;
+}
+
+.copy-box {
+  width: 100%;
+  gap: 15px;
+  flex-direction: row;
+  display: flex;
+  justify-content: space-between;
+  align-items: left;
+  margin-bottom: 2rem;
+}

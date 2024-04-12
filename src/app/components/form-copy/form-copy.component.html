@@ -1,0 +1,22 @@
+<mat-card>
+  <h1>{{ txtTitulo }}</h1>
+
+  <form [formGroup]="copyForm" (ngSubmit)="submit()" #formDit="ngForm">
+    <input type="hidden" formControlName="id">
+
+    <div class="input-box">
+      <mat-form-field>
+        <mat-label for="">Código da Cópia:</mat-label>
+        <input matInput type="text" formControlName="copyCode" placeholder="Insira o código da cópia..." (blur)="copyCodeErrorMessage()" required>
+        @if (copyCode.invalid) {
+          <mat-error>{{errorInputCopyCode}}</mat-error>
+          }
+      </mat-form-field>
+    </div>
+
+    <div class="btn-box">
+      <button type="submit" mat-raised-button color="accent" [disabled]="!copyForm.valid">{{ btnAcao }}</button>
+      <button mat-raised-button routerLink="/copias/lista/{{idBook}}">Voltar</button>
+    </div>
+  </form>
+</mat-card>

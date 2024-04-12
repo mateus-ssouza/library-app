@@ -1,0 +1,33 @@
+<div class="login-form">
+  <h1><mat-icon>local_library</mat-icon> Biblioteca App</h1>
+  <h1>Login</h1>
+
+  <form [formGroup]="loginForm" (ngSubmit)="submit()" #formDit="ngForm">
+    <div class="input-box">
+      <mat-form-field>
+        <input matInput type="email" formControlName="email" placeholder="E-MAIL" (blur)="emailErrorMessage()" required>
+        @if (email.invalid) {
+        <mat-error>{{errorInputEmail}}</mat-error>
+        }
+      </mat-form-field>
+    </div>
+
+    <div class="input-box">
+      <mat-form-field>
+        <input matInput type="password" formControlName="password" placeholder="SENHA" (blur)="passwordErrorMessage()"
+          required>
+        @if (password.invalid) {
+        <mat-error>{{errorInputPassword}}</mat-error>
+        }
+      </mat-form-field>
+    </div>
+
+    <div class="btn-box">
+      <button type="submit" mat-raised-button color="accent" [disabled]="!loginForm.valid">Entrar</button>
+    </div>
+  </form>
+
+  <div class="register-link">
+    <p>Não tem uma conta? <a routerLink="/cadastro">Cadastre-se.</a></p>
+  </div>
+</div>

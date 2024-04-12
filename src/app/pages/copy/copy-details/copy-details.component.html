@@ -1,0 +1,50 @@
+@if (copy) {
+<mat-card>
+  <div>
+    <h1>Detalhes do Livro</h1>
+  </div>
+
+  <div>
+    <form>
+      <div class="input-box">
+        <mat-form-field>
+          <mat-label for="">Título do livro:</mat-label>
+          <input matInput type="text" value="{{copy.book.title}}" disabled>
+        </mat-form-field>
+      </div>
+
+      <div class="input-box">
+        <mat-form-field>
+          <mat-label for="">Autor:</mat-label>
+          <input matInput type="text" value="{{copy.book.author}}" disabled>
+        </mat-form-field>
+      </div>
+
+      <div class="input-box">
+        <mat-form-field>
+          <mat-label for="">ISBN:</mat-label>
+          <input matInput type="text" value="{{copy.book.isbn}}" disabled>
+        </mat-form-field>
+      </div>
+
+      <div class="input-box">
+        <mat-form-field>
+          <mat-label for="">Código da Cópia:</mat-label>
+          <input matInput type="text" value="{{copy.copyCode}}" disabled>
+        </mat-form-field>
+      </div>
+
+      <div class="input-box">
+        <mat-form-field>
+          <mat-label for="">Disponibilidade:</mat-label>
+          <input matInput type="text" value="{{copy.available ? 'DISPONÍVEL': 'INDISPONÍVEL'}}" disabled>
+        </mat-form-field>
+      </div>
+      <div class="btn-box">
+        <button mat-raised-button routerLink="/copias/lista/{{bookId}}">Voltar</button>
+      </div>
+    </form>
+  </div>
+
+</mat-card>
+}

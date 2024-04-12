@@ -1,0 +1,35 @@
+<mat-card>
+  <div>
+    <h1>Detalhes do Livro</h1>
+  </div>
+
+  @if (book) {
+  <div>
+    <form>
+      <div class="input-box">
+        <mat-form-field>
+          <mat-label for="">Título:</mat-label>
+          <input matInput type="text" value="{{book.title}}" disabled>
+        </mat-form-field>
+      </div>
+
+      <div class="input-box">
+        <mat-form-field>
+          <mat-label for="">Autor:</mat-label>
+          <input matInput type="text" value="{{book.author}}" disabled>
+        </mat-form-field>
+      </div>
+
+      <div class="input-box">
+        <mat-form-field>
+          <mat-label for="">ISBN:</mat-label>
+          <input matInput type="text" value="{{book.isbn}}" disabled>
+        </mat-form-field>
+      </div>
+      <div class="btn-box">
+        <button mat-raised-button routerLink="/livros">Voltar</button>
+      </div>
+    </form>
+  </div>
+  }
+</mat-card>

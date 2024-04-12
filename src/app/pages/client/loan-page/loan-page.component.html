@@ -1,0 +1,59 @@
+<mat-card>
+  <div class="loan-box">
+    <div class="input-box">
+      <mat-form-field>
+        <mat-label>Procurar:</mat-label>
+        <input matInput type="text" placeholder="Qual registro está buscando?" (input)="search($event)">
+      </mat-form-field>
+    </div>
+
+    <div>
+      <button mat-raised-button color="primary" routerLink="/emprestimo/solicitacao">SOLICITAR</button>
+    </div>
+  </div>
+
+  <table mat-table [dataSource]="dataSource">
+
+    <ng-container matColumnDef="Id">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let loan"></td>
+    </ng-container>
+
+    <ng-container matColumnDef="Usuario">
+      <th mat-header-cell *matHeaderCellDef> Usuário </th>
+      <td mat-cell *matCellDef="let loan"> {{loan.user}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="DataDoEmprestimo">
+      <th mat-header-cell *matHeaderCellDef> Data do Empréstimo </th>
+      <td mat-cell *matCellDef="let loan"> {{loan.loanDate}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="DataDeRetorno">
+      <th mat-header-cell *matHeaderCellDef> Data de Retorno </th>
+      <td mat-cell *matCellDef="let loan"> {{loan.returnDate}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Status">
+      <th mat-header-cell *matHeaderCellDef> Situação </th>
+      <td mat-cell *matCellDef="let loan"> @switch (loan.status) {
+        @case (1) { Solicitado }
+        @case (2) { Em Andamento }
+        @case (3) { Finalizado }
+        } </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Acoes">
+      <th mat-header-cell *matHeaderCellDef>Ações</th>
+      <td mat-cell *matCellDef="let loan">
+        <button mat-icon-button color="basic"
+          routerLink="/meus-emprestimos/detalhes/{{loan.id}}"><mat-icon>description</mat-icon></button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="columns"></tr>
+    <tr mat-row *matRowDef="let row; columns: columns;"></tr>
+  </table>
+  <mat-paginator [length]="20" [pageSize]="5" [pageSizeOptions]="[5, 10, 20]" aria-label="Select page">
+  </mat-paginator>
+</mat-card>

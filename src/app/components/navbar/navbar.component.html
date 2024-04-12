@@ -1,0 +1,30 @@
+<mat-toolbar color="primary" class="navbar">
+  <button mat-icon-button routerLink="/usuarios">
+    <mat-icon>local_library</mat-icon>
+  </button>
+  <span>Biblioteca App</span>
+
+  <div class="menu-itens">
+    @if (user?.userType == 1) {
+    <button mat-button routerLink="/usuarios">Usuários</button>
+    <button mat-button routerLink="/livros">Livros</button>
+    <button mat-button routerLink="/copias">Cópias</button>
+    <button mat-button routerLink="/emprestimos">Empréstimos</button>
+    }
+
+    @if (user?.userType == 2) {
+      <button mat-button routerLink="/meus-emprestimos">Meus Empréstimos</button>
+    }
+
+  </div>
+
+  <div class="profile-options">
+    <button mat-icon-button (click)="profile()">
+      <mat-icon>person</mat-icon>
+    </button>
+    <button mat-icon-button (click)="logout()">
+      <mat-icon>logout</mat-icon>
+    </button>
+  </div>
+
+</mat-toolbar>

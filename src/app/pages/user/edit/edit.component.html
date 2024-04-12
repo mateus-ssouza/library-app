@@ -1,0 +1,102 @@
+@if (userData) {
+  <mat-card>
+    <h1>Editar Usuário</h1>
+
+    <form [formGroup]="userForm" (ngSubmit)="submit()" #formDit="ngForm">
+      <input type="hidden" formControlName="id">
+
+      <div class="input-box">
+        <mat-form-field>
+          <mat-label for="">Nome:</mat-label>
+          <input matInput type="text" formControlName="name" placeholder="Insira o nome..."
+            (blur)="nameErrorMessage()" required>
+          @if (name.invalid) {
+          <mat-error>{{errorInputName}}</mat-error>
+          }
+        </mat-form-field>
+      </div>
+
+      <div class="input-box">
+        <mat-form-field>
+          <mat-label for="">CPF:</mat-label>
+          <input matInput type="text" formControlName="cpf" placeholder="Insira o cpf..." (blur)="cpfErrorMessage()"
+            required>
+          @if (cpf.invalid) {
+          <mat-error>{{errorInputCpf}}</mat-error>
+          }
+        </mat-form-field>
+      </div>
+
+      <div class="input-box">
+        <mat-form-field>
+          <mat-label for="">Data de Aniversário:</mat-label>
+          <input matInput type="text" formControlName="birthday" placeholder="dd/mm/aaaa" (blur)="birthdayErrorMessage()"
+            required>
+          @if (birthday.invalid) {
+          <mat-error>{{errorInputBirthday}}</mat-error>
+          }
+        </mat-form-field>
+      </div>
+
+      <div class="input-box">
+        <mat-form-field>
+          <mat-label for="">Rua:</mat-label>
+          <input matInput type="text" formControlName="street" placeholder="Insira a rua..."
+            (blur)="streetErrorMessage()" required>
+          @if (street.invalid) {
+          <mat-error>{{errorInputStreet}}</mat-error>
+          }
+        </mat-form-field>
+      </div>
+
+      <div class="input-box">
+        <mat-form-field>
+          <mat-label for="">Número:</mat-label>
+          <input matInput type="text" formControlName="number" placeholder="Insira o número..."
+            (blur)="numberErrorMessage()" required>
+          @if (number.invalid) {
+          <mat-error>{{errorInputNumber}}</mat-error>
+          }
+        </mat-form-field>
+      </div>
+
+      <div class="input-box">
+        <mat-form-field>
+          <mat-label for="">Complemento:</mat-label>
+          <input matInput type="text" formControlName="complement" placeholder="Insira o complemento..."
+            (blur)="complementErrorMessage()" required>
+          @if (complement.invalid) {
+          <mat-error>{{errorInputComplement}}</mat-error>
+          }
+        </mat-form-field>
+      </div>
+
+      <div class="input-box">
+        <mat-form-field>
+          <mat-label for="">Cidade:</mat-label>
+          <input matInput type="text" formControlName="city" placeholder="Insira a cidade..."
+            (blur)="cityErrorMessage()" required>
+          @if (city.invalid) {
+          <mat-error>{{errorInputCity}}</mat-error>
+          }
+        </mat-form-field>
+      </div>
+
+      <div class="input-box">
+        <mat-form-field>
+          <mat-label for="">Estado:</mat-label>
+          <input matInput type="text" formControlName="state" placeholder="Insira o estado..."
+            (blur)="stateErrorMessage()" required>
+          @if (state.invalid) {
+          <mat-error>{{errorInputState}}</mat-error>
+          }
+        </mat-form-field>
+      </div>
+
+      <div class="btn-box">
+        <button type="submit" mat-raised-button color="accent" [disabled]="!userForm.valid">Editar</button>
+        <button mat-raised-button routerLink="/usuarios">Voltar</button>
+      </div>
+    </form>
+  </mat-card>
+}
