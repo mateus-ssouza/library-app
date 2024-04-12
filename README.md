@@ -1,27 +1,42 @@
-# FrontApiBiblioteca
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.0.
+# Biblioteca App 📚
 
-## Development server
+Esta aplicação web teve como objetivo realizar um controle de empréstimos de uma biblioteca, onde teremos dois tipos de usuários com finalidades diferentes.
+- O Administrador irá gerenciar o sistema, realizando CRUD de Livros, Cópias de livros e Empréstimos;
+- O Cliente poderá acessar o sistema para solicitar seus empréstimos de livros.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Executar
 
-## Code scaffolding
+Após baixar o repositório, abra o terminal na pasta onde foi baixado e execute os seguintes comandos:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Entrando na pasta do projeto
 
-## Build
+```bash
+  cd library-app
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Instalando as dependências do projeto
 
-## Running unit tests
+```bash
+  npm i
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Executando a aplicação
 
-## Running end-to-end tests
+```bash
+  ng serve
+```
+    
+## Tecnologias utilizadas
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+![HTML](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![CSS](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
+![Node.js](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white)
+![Angular](https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white)
+![Material Angular](https://img.shields.io/badge/Material_Angular-607D8B?style=for-the-badge&logo=angular&logoColor=white)
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+
+
